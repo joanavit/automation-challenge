@@ -5,63 +5,21 @@ The following project was made in order to comply with the Mercedes-Benz.io auto
 The automation tool chosen was WebdriverIO.
 
 Please refer to this [WebdriverIO "Get started" section](https://webdriver.io/docs/gettingstarted#system-requirements) to get more info about WebdriverIO.
-
-
-## System Requirements
-
-In order to successfully run this project the Node.js version must be installed.
-To quickly verify if you have Node.js or which version you have, simply run the command below:
-```bash
-node -v
-```
-Outcome example:
-```bash
-v14.19.0
-```
-
+_________________________________
 # Dependencies
-## Chai - Assertions
-Check if [Chai](https://www.chaijs.com/) is installed
-~~~~
-npm chai -v
-~~~~
 
-Install Chai for CHAI assertions
-~~~~
-npm i chai
-~~~~
+To install all the necessary dependencies, go to the automation project's folder and run the command:
+~~~
+npm install
+~~~
 
 ## JAVA
-To run the test on both browsers, selenium-standalone requires JAVA-SDK
-- Check if JAVA is installed
-~~~~
-java -v
-~~~~
-- Install JAVA
-~~~~
-INSTALL java
-~~~~
+To run the test on both browsers, selenium-standalone requires JAVA-SDK. If needed,  
+[Install JAVA](https://www.java.com/en/).
 
-## Drivers
-[Selenium Standalone Service](https://webdriver.io/docs/selenium-standalone-service/) is used to run both Chrome and Firefox browsers. 
-Before starting make sure you have JDK installed.
-To install selenium-standalone, run
-~~~
-npm install @wdio/selenium-standalone-service --save-dev
-~~~~
-
-## Allure Reporter
-Install [Allure](https://webdriver.io/docs/allure-reporter) to generate a report after each Test Run:
-~~~~
-npm install -g allure-commandline --save-dev
-~~~~
-
-## BABEL Compiler
-Install [Babel](https://webdriver.io/docs/babel/) to use the next-generation JavaScript features.
-~~~
-npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
-~~~
-
+## Browsers
+This test will run on [Chrome](https://www.google.com/intl/pt-PT/chrome/) and [Firefox](https://www.mozilla.org/en-US/firefox/new/). Please check if you have them installed before running.
+__________________________________
 # USAGE
 To run your tests, run the command below on the IDE's terminal:
 ~~~~
@@ -76,52 +34,13 @@ Run the command below to simply open the current report:
 ~~~~
 allure open
 ~~~~
-
-
-
-# More on WebdriverIO
-
-To setup a project from scratch run, create an empty folder and run the command:
-```
-npm init wdio ./projectfoldername
-```
-
-Below are the configurations for the current project:
-~~~~
-=========================
-WDIO Configuration Helper
-=========================
-
-? Where is your automation backend located? On my local machine
-? Which framework do you want to use? mocha
-? Do you want to use a compiler? Babel (https://babeljs.io/)
-? Where are your test specs located? ./test/specs/**/*.js
-? Do you want WebdriverIO to autogenerate some test files? No
-? Which reporter do you want to use? spec, allure
-? Do you want to add a plugin to your test setup? wait-for
-? Do you want to add a service to your test setup? selenium-standalone
-? What is the base url? http://localhost
-? Do you want me to run `npm install` (Y/n) Y
-~~~~
-
-
-You should see this after selecting all the configurations above:
-~~~~
-Installing wdio packages:
-- @wdio/local-runner@latest
-- @wdio/mocha-framework@latest
-- @wdio/allure-reporter@latest
-- wdio-wait-for
-- @wdio/selenium-standalone-service@latest
-- @babel/register
-- @babel/core
-- @babel/preset-env
-~~~~
-
+# Note
+There is an open [bug](https://github.com/webdriverio/webdriverio/issues/8735) do to the port 4444 error message in windows. As a workaround, I opened a new terminal everytime I wanted to run the test.
+__________________________________
 
 # Time for personal notes?
 ## Peformance
-Flaky results are never good. This test runs on Chrome with a 8/10 success rate and on Firefox it has the modest 7/10 ... failure rate (2 of them which produced a screenshot and a file despite no being able to find a selector).
+Flaky results are never good. This test runs on Chrome with a 8/10 success rate and on Firefox it has the modest 7/10 ... failure rate (2 of them which produced a screenshot and a file despite not being able to find a selector).
 ## Experience before, after and during this challenge
 - My experience with WebdriverIO is limited to the [course](https://www.udemy.com/course/webdriverio-tutorial-nodejs-javascript/) I took on Udemy. Currently, my project uses its own Test Tool which is based on Mocha and already has an extensive ammout of functions developed. I need to read them, copy them and change something if needed (which is rare).
 - In all my previous brief automation experiences (mostly RobotFramework), XPATH was the selector used. CSS selectors were used very scarcely;

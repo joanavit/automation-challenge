@@ -17,7 +17,7 @@ const productType = 'Hatchback';
 const desiredOption = 'Build your car';
 const carConfiguratorURL = '/car-configurator.html';
 const desiredFuelType = 'Diesel';
-const width = 1280;
+const width = 1024;
 const height = 768;
 const currentBrowser = browser.capabilities.browserName;
 const screenShotName = 'MercedesAutomationChallenge';
@@ -41,7 +41,8 @@ describe(`Validate ${modelClass} Class models price are between ${minModelPrice}
     // Assertion to check Mercedes' logo link
     await expect(homePage.headerTop).toHaveUrlContaining(logoLink);
     //// Wait for the chat button to be displayed - it was usually the last item to load on the page
-    await homePage.messengerButton.waitForDisplayed({ timeout: 10000 });
+    // Removed because it can only be found with a higher browser resolution
+    //await homePage.messengerButton.waitForDisplayed({ timeout: 20000 });
   })
   it(`Agree to all cookies`, async () => {
     // Wait for the cookie banner window to be displayed
@@ -92,19 +93,18 @@ describe(`Validate ${modelClass} Class models price are between ${minModelPrice}
     ///////////////////////////////////////////////////////////////
     // ACTION TO DO ONLY IN FIREFOX  //
     if (currentBrowser === 'firefox') {
-      // Arrow down 3x - aid to the next "click" function
-      await browser.keys('\uE015');
+      // Arrow down 2x - aid to the next "click" function
       await browser.keys('\uE015');
       await browser.keys('\uE015');
     }
     ///////////////////////////////////////////////////////////////
   })
   it(`Filter by Fuel type “${desiredFuelType}”`, async () => {
-    // Click on the "Fuel Type" drop down
+    // Click on the "Fuel Type" drop down to open it
     await carConfiguratorPage.fuelSelector.click();
     ///////////////////////////////////////////////////////////////
     // ACTION TO DO ONLY IN FIREFOX  //
-     if (currentBrowser === 'firefox') {
+    if (currentBrowser === 'firefox') {
       // Arrow down 2x - aid to the next "click" function
       await browser.keys('\uE015');
       await browser.keys('\uE015');
