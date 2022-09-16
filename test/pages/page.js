@@ -1,3 +1,4 @@
+
 /**
  * Page - Page Object Base Function to open the browser
  * @param {path} - URL link to open
